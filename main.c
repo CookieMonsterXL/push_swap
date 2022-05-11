@@ -20,7 +20,6 @@ int	main(int argc, char **argv)
 	t_node	*head_node;
 	t_node	*temp_node;
 	int		i;
-	int		b;
 
 	i = 1;
 	head_node = ft_new_node(atoi(argv[i]));
@@ -31,8 +30,9 @@ int	main(int argc, char **argv)
 		ft_node_add_back(&head_node, temp_node);
 		i++;
 	}
-	temp_node = head_node;
 
+	status_nodes(head_node);
+	swap_top(&head_node);
 	status_nodes(head_node);
 	return (0);
 }
