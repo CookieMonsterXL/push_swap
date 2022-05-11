@@ -17,11 +17,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	*head_node_a;
-	t_node	*head_node_b;
-	t_node	*temp_node;
-	int		i;
+	t_lists_a_b	lists;
+	t_node		*head_node_a;
+	t_node		*head_node_b;
+	t_node		*temp_node;
+	int			i;
 
+	lists.a = &head_node_a;
+	lists.b = &head_node_b;
 	i = 1;
 	head_node_a = ft_new_node(atoi(argv[i]));
 	i++;

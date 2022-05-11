@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:33:13 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/11 11:47:32 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/11 12:49:04 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*previous;
 }	t_node;
+
+typedef struct s_list_a_b
+{
+	struct s_node	**a;
+	struct s_node	**b;
+}	t_lists_a_b;
 
 // NODES
 t_node	*ft_new_node(int content);
