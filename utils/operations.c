@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions.c                                          :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:06:03 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/10 18:49:16 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/11 11:42:42 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../includes/push_swap.h"
 
 // SWAP LIST_A OR LIST_B, SA, SB, SS
-void	swap_top(t_node **list_a)
+void	swap_top(t_node **list_a, char *op)
 {
 	t_node	*temp2;
 	t_node	*temp3;
@@ -38,13 +38,48 @@ void	swap_top(t_node **list_a)
 	temp2->previous = NULL;
 	*list_a = temp2;
 
+	print_operation(op);
+
 }
 
-// void	push_top(t_node **list_from, t_node **list_to)
-// {
-// 	//t_node	*temp2;
+void	push_top(t_node **list_from, t_node **list_to, char *op)
+{
+	t_node	*temp_from;
+	t_node	*temp_to;
+	int		len;
 
-// 	// if (ft_node_list_size(*list_from) < 1)
-// 	// 	return ;
-
-// }
+	temp_from = *list_from;
+	temp_to = *list_to;
+	len = ft_node_list_size(*list_from);
+	if (len < 1)
+		return ;
+	else if (len > 1)
+	{
+		(*list_from)->next->previous = NULL;
+		*list_from = (*list_from)->next;
+		if (*list_to == NULL)
+		{
+			*list_to = temp_from;
+			(*list_to)->next = NULL;
+		}
+		else
+		{
+			*list_to = temp_from;
+			temp_to->previous = *list_to;
+			(*list_to)->next = temp_to;
+		}
+	}
+	else
+	{
+		*list_from = NULL;
+		if (*list_to == NULL)
+			*list_to = temp_from;
+		else
+		{
+			*list_to = temp_from;
+			temp_to->previous = *list_to;
+			(*list_to)->next = temp_to;
+		}
+	}
+	print_operation(op);
+}

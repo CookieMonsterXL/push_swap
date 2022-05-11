@@ -17,22 +17,26 @@
 
 int	main(int argc, char **argv)
 {
-	t_node	*head_node;
+	t_node	*head_node_a;
+	t_node	*head_node_b;
 	t_node	*temp_node;
 	int		i;
 
 	i = 1;
-	head_node = ft_new_node(atoi(argv[i]));
+	head_node_a = ft_new_node(atoi(argv[i]));
 	i++;
 	while (i < argc)
 	{
 		temp_node = ft_new_node(atoi(argv[i]));
-		ft_node_add_back(&head_node, temp_node);
+		ft_node_add_back(&head_node_a, temp_node);
 		i++;
 	}
 
-	status_nodes(head_node);
-	swap_top(&head_node);
-	status_nodes(head_node);
+	status_nodes(&head_node_a, &head_node_b);
+	swap_top(&head_node_a, SA);
+	push_top(&head_node_a, &head_node_b, PB);
+	push_top(&head_node_a, &head_node_b, PB);
+	push_top(&head_node_b, &head_node_a, PA);
+	status_nodes(&head_node_a, &head_node_b);
 	return (0);
 }

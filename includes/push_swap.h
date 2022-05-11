@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:33:13 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/10 18:48:55 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/11 11:47:32 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,22 @@ void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_node_list_size(t_node *lst);
 
 // ACTIONS
-void	swap_top(t_node **list_a);
-void	push_top(t_node **list_from, t_node **list_to);
+void	swap_top(t_node **list_a, char *op);
+void	push_top(t_node **list_from, t_node **list_to, char *op);
 
 // STATUS
-void status_nodes(t_node *head_node);
+void	status_nodes(t_node **head_node_a, t_node **head_node_b);
+
+// PRINT
+void	print_operation(char *operation);
+
+// DIFINE
+# define SA		"sa\n"
+# define SB		"sb\n"
+# define SS		"ss\n"
+# define PA		"pa\n"
+# define PB		"pb\n"
+
 
 
 #endif

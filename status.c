@@ -15,18 +15,37 @@
 #include "includes/libft/libft.h"
 #include "includes/push_swap.h"
 
-void	status_nodes(t_node *head_node_a)
+void	status_nodes(t_node **head_node_a, t_node **head_node_b)
 {
-	int	i;
-
-	i = ft_node_list_size(head_node_a);
+	int		i;
+	t_node	*temp;
+// 	LIST A
+	temp = *head_node_a;
+	i = ft_node_list_size(temp);
 	printf("list A\n");
 	printf("length: %d\n", i);
-	while (head_node_a->next)
+	while (temp->next)
 	{
-		printf("value= %d\n", head_node_a->content);
-		if (head_node_a->next != NULL)
-			head_node_a = head_node_a->next;
+		printf("\tvalue= %d\n", temp->content);
+		if (temp->next != NULL)
+			temp = temp->next;
 	}
-	printf("value= %d\n", head_node_a->content);
+	if (temp)
+		printf("\tvalue= %d\n", temp->content);
+// 	LIST B
+	temp = *head_node_b;
+	i = ft_node_list_size(temp);
+	printf("list B\n");
+	printf("length: %d\n", i);
+	if (temp)
+	{
+		while (temp->next)
+		{
+			printf("\tvalue= %d\n", temp->content);
+			if (temp->next != NULL)
+				temp = temp->next;
+		}
+		if (temp)
+			printf("\tvalue= %d\n", temp->content);
+	}
 }

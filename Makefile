@@ -6,12 +6,12 @@
 #    By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 15:49:51 by tbouma            #+#    #+#              #
-#    Updated: 2022/05/10 16:25:58 by tbouma           ###   ########.fr        #
+#    Updated: 2022/05/11 11:22:34 by tbouma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
-OBJFILES := obj/main.o obj/status.o obj/utils/node.o obj/utils/actions.o
+OBJFILES := obj/main.o obj/status.o obj/utils/node.o obj/utils/operations.o obj/utils/print.o
 LIBFT := includes/libft/libft.a
 HEADERS := -I includes/libft/
 CFLAGS := -Wall -Wextra -Werror
