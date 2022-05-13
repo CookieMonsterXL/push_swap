@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -35,6 +37,7 @@ t_node	*ft_new_node(int content);
 void	ft_node_add_back(t_node **node_lst, t_node *new_node);
 void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_node_list_size(t_node *lst);
+t_node	*ft_last_node(t_node **list);
 
 // ACTIONS
 // void	swap_OLD(t_node **list_a, char *op);
@@ -42,12 +45,16 @@ int		ft_node_list_size(t_node *lst);
 void	swap(t_node **list, char *op);
 void	swap_ss(t_lists_a_b *lists);
 void	push(t_lists_a_b *lists, char *op);
+void	rotate(t_node **list, char *op);
+void	rotate_rr(t_lists_a_b *lists);
+void	r_rotate(t_node **list, char *op);
 
 // STATUS
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);
 
 // PRINT
 void	print_operation(char *operation);
+void	stupid_move(char *op);
 
 // DIFINE
 # define SA		"sa\n"
@@ -55,6 +62,12 @@ void	print_operation(char *operation);
 # define SS		"ss\n"
 # define PA		"pa\n"
 # define PB		"pb\n"
+# define RA		"ra\n"
+# define RB		"rb\n"
+# define RR		"rr\n"
+# define RRA	"rra\n"
+# define RRB	"rrb\n"
+# define RRR	"rrr\n"
 
 
 

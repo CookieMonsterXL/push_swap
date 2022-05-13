@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 10:15:05 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/13 16:59:54 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,16 @@ int	ft_node_list_size(t_node *lst)
 		current = current->next;
 	}
 	return (i);
+}
+
+t_node	*ft_last_node(t_node **list)
+{
+	t_node	*current;
+
+	current = *list;
+	while (current->next != NULL)
+		current = current->next;
+	return (current);
 }
 
 // void	ft_node_iter(t_node *lst, void (*f)(void *))

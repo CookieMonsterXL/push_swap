@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:10 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 15:41:18 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/13 16:37:46 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(t_node **list, char *op)
 
 	len = ft_node_list_size(*list);
 	if (len < 2)
-		return ;
+		return (stupid_move(op));
 	cont_1 = (*list)->content;
 	(*list)->content = (*list)->next->content;
 	(*list)->next->content = cont_1;
