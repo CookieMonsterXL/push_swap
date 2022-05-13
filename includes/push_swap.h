@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:33:13 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/11 12:49:04 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/13 15:45:54 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_node
 
 typedef struct s_list_a_b
 {
-	struct s_node	**a;
-	struct s_node	**b;
+	struct s_node	*a;
+	struct s_node	*b;
 }	t_lists_a_b;
 
 // NODES
@@ -37,8 +37,11 @@ void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_node_list_size(t_node *lst);
 
 // ACTIONS
-void	swap_top(t_node **list_a, char *op);
-void	push_top(t_node **list_from, t_node **list_to, char *op);
+// void	swap_OLD(t_node **list_a, char *op);
+// void	push_OLD(t_node **list_from, t_node **list_to, char *op);
+void	swap(t_node **list, char *op);
+void	swap_ss(t_lists_a_b *lists);
+void	push(t_lists_a_b *lists, char *op);
 
 // STATUS
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);

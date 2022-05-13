@@ -18,28 +18,34 @@
 int	main(int argc, char **argv)
 {
 	t_lists_a_b	lists;
-	t_node		*head_node_a;
-	t_node		*head_node_b;
+//	t_node		*head_node_a;
+//	t_node		*head_node_b;
 	t_node		*temp_node;
 	int			i;
 
-	lists.a = &head_node_a;
-	lists.b = &head_node_b;
+	// lists.a = head_node_a;
+	// lists.b = head_node_b;
 	i = 1;
-	head_node_a = ft_new_node(atoi(argv[i]));
+	lists.a = ft_new_node(atoi(argv[i]));
 	i++;
 	while (i < argc)
 	{
 		temp_node = ft_new_node(atoi(argv[i]));
-		ft_node_add_back(&head_node_a, temp_node);
+		ft_node_add_back(&lists.a, temp_node);
 		i++;
 	}
 
-	status_nodes(&head_node_a, &head_node_b);
-	swap_top(&head_node_a, SA);
-	push_top(&head_node_a, &head_node_b, PB);
-	push_top(&head_node_a, &head_node_b, PB);
-	push_top(&head_node_b, &head_node_a, PA);
-	status_nodes(&head_node_a, &head_node_b);
+	status_nodes(&lists.a, &lists.b);
+	//swap(&lists.a, SA);
+	push(&lists, PB);
+	push(&lists, PB);
+	push(&lists, PB);
+	push(&lists, PB);
+	push(&lists, PA);
+	push(&lists, PA);
+	push(&lists, PA);
+	//push_top(&lists.b, &lists.a, PA);
+	//swap_ss(&lists);
+	status_nodes(&lists.a, &lists.b);
 	return (0);
 }

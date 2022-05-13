@@ -24,7 +24,8 @@ void	status_nodes(t_node **head_node_a, t_node **head_node_b)
 	i = ft_node_list_size(temp);
 	printf("list A\n");
 	printf("length: %d\n", i);
-	while (temp->next)
+
+	while (temp && temp->next)
 	{
 		printf("\tvalue= %d\n", temp->content);
 		if (temp->next != NULL)
