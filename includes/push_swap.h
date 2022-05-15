@@ -20,10 +20,10 @@
 
 typedef struct s_node
 {
-	int				content;
+	int				c;
 	int				index;
-	struct s_node	*next;
-	struct s_node	*previous;
+	struct s_node	*n;
+	struct s_node	*p;
 }	t_node;
 
 typedef struct s_list_a_b
@@ -33,7 +33,7 @@ typedef struct s_list_a_b
 }	t_lists_a_b;
 
 // NODES
-t_node	*ft_new_node(int content);
+t_node	*ft_new_node(int c);
 void	ft_node_add_back(t_node **node_lst, t_node *new_node);
 void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_node_list_size(t_node *lst);

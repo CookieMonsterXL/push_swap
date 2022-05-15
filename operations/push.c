@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 16:37:29 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 17:55:05 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static void	push_node_to_other_list(t_node **list_from, t_node **list_to)
 
 	temp_from = *list_from;
 	temp_to = *list_to;
-	(*list_from)->next->previous = NULL;
-	*list_from = (*list_from)->next;
+	(*list_from)->n->p = NULL;
+	*list_from = (*list_from)->n;
 	if (*list_to == NULL)
 	{
 		*list_to = temp_from;
-		(*list_to)->next = NULL;
+		(*list_to)->n = NULL;
 	}
 	else
 	{
 		*list_to = temp_from;
-		(*list_to)->next = temp_to;
-		(*list_to)->next->previous = *list_to;
+		(*list_to)->n = temp_to;
+		(*list_to)->n->p = *list_to;
 	}
 }
 
@@ -49,8 +49,8 @@ static void	push_last_node_to_other_list(t_node **list_from, t_node **list_to)
 	else
 	{
 		*list_to = temp_from;
-		temp_to->previous = *list_to;
-		(*list_to)->next = temp_to;
+		temp_to->p = *list_to;
+		(*list_to)->n = temp_to;
 	}
 }
 

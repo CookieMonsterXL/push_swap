@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:22:33 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 10:04:53 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 17:55:05 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ void	rotate(t_node **list, char *op)
 	if (len < 2)
 		return (stupid_move(op));
 	last = ft_last_node(list);
-	*list = (*list)->next;
-	(*list)->previous = NULL;
-	last->next = temp;
-	temp->previous = last;
-	temp->next = NULL;
+	*list = (*list)->n;
+	(*list)->p = NULL;
+	last->n = temp;
+	temp->p = last;
+	temp->n = NULL;
 	if (op)
 		print_operation(op);
 }
@@ -51,12 +51,12 @@ void	r_rotate(t_node **list, char *op)
 	if (len < 2)
 		return (stupid_move(op));
 	last = ft_last_node(list);
-	last->previous->next = NULL;
-	last->previous = NULL;
+	last->p->n = NULL;
+	last->p = NULL;
 	temp = *list;
 	*list = last;
-	(*list)->next = temp;
-	temp->previous = *list;
+	(*list)->n = temp;
+	temp->p = *list;
 	if (op)
 		print_operation(op);
 }

@@ -6,22 +6,22 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 16:59:54 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 17:56:13 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_node	*ft_new_node(int content)
+t_node	*ft_new_node(int c)
 {
 	t_node	*new_node;
 
 	new_node = (t_node *)malloc(sizeof (*new_node));
 	if (!(new_node))
 		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	new_node->previous = NULL;
+	new_node->c = c;
+	new_node->n = NULL;
+	new_node->p = NULL;
 	return (new_node);
 }
 
@@ -35,10 +35,10 @@ void	ft_node_add_back(t_node **node_lst, t_node *new_node)
 		return ;
 	}
 	current = *node_lst;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = new_node;
-	new_node->previous = current;
+	while (current->n != NULL)
+		current = current->n;
+	current->n = new_node;
+	new_node->p = current;
 }
 
 int	ft_node_list_size(t_node *lst)
@@ -51,7 +51,7 @@ int	ft_node_list_size(t_node *lst)
 	while (current != NULL)
 	{
 		i++;
-		current = current->next;
+		current = current->n;
 	}
 	return (i);
 }
@@ -61,8 +61,8 @@ t_node	*ft_last_node(t_node **list)
 	t_node	*current;
 
 	current = *list;
-	while (current->next != NULL)
-		current = current->next;
+	while (current->n != NULL)
+		current = current->n;
 	return (current);
 }
 
@@ -72,7 +72,7 @@ t_node	*ft_last_node(t_node **list)
 // 		return ;
 // 	while (lst)
 // 	{
-// 		f(lst->content);
-// 		lst = lst->next;
+// 		f(lst->c);
+// 		lst = lst->n;
 // 	}
 // }
