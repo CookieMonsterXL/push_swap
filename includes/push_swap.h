@@ -48,6 +48,11 @@ void	push(t_lists_a_b *lists, char *op);
 void	rotate(t_node **list, char *op);
 void	rotate_rr(t_lists_a_b *lists);
 void	r_rotate(t_node **list, char *op);
+void	r_rotate_rr(t_lists_a_b *lists);
+
+// SORT
+void	sort3(t_node **list_a);
+void	sort5(t_lists_a_b *lists);
 
 // STATUS
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);
@@ -68,7 +73,5 @@ void	stupid_move(char *op);
 # define RRA	"rra\n"
 # define RRB	"rrb\n"
 # define RRR	"rrr\n"
-
-
 
 #endif

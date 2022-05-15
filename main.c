@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 17:26:20 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 13:08:42 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	status_nodes(&lists.a, &lists.b);
-	//swap(&lists.a, SA);
-	push(&lists, PB);
-	push(&lists, PB);
-
-	// push(&lists, PA);
-	//swap_ss(&lists);
-	r_rotate(&lists.a, RRA);
-	r_rotate(&lists.b, RRB);
-	//rotate_rr(&lists);
+	sort5(&lists);
 	status_nodes(&lists.a, &lists.b);
 	return (0);
 }
