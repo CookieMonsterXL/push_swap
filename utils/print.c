@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 11:16:25 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/13 16:37:02 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 18:25:25 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 void	print_operation(char *operation)
 {
 	write(1, operation, ft_strlen(operation));
+	*g_op_counter += 1; //GLOBEL COUNTER REMOVE LATER
 }
 
 void	stupid_move(char *op)
 {
 	print_operation(op);
 	write(1, "STUPID MOVE\n", 12);
+	*g_op_counter += 1; //GLOBEL COUNTER REMOVE LATER
 }

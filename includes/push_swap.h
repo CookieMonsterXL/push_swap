@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
+int		*g_op_counter; //GLOBEL COUNTER REMOVE LATER
+
 typedef struct s_node
 {
 	int				c;

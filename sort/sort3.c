@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:02:50 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 18:11:30 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/15 18:33:16 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	sort5_h(t_lists_a_b *lists, int high, int low, t_node *last_a)
 			rotate(&lists->a, RA);
 	}
 }
-
+// IF LIST IS SORTED SORT5 WILL STILL PUSH 2X TO LIST B
 void	sort5(t_lists_a_b *lists)
 {
 	t_node	*last_a;
