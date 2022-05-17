@@ -61,6 +61,8 @@ void	sort2(t_node **list_a);
 void	sort3(t_node **list_a);
 void	sort5(t_lists_a_b *lists);
 
+void	bucketsort(t_lists_a_b *lists);
+
 // STATUS
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);
 

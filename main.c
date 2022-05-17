@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 15:32:06 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/17 17:27:41 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int argc, char **argv)
 		sort3(&lists.a);
 	if (length_list > 3 && length_list < 6)
 		sort5(&lists);
+	if (length_list > 5)
+		bucketsort(&lists);
 	status_nodes(&lists.a, &lists.b);
 	printf("operation counter=%d\n", *g_op_counter); //GLOBEL COUNTER REMOVE LATER
 	return (0);
