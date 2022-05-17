@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 17:56:13 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/17 16:05:02 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ t_node	*ft_new_node(int c)
 	new_node->c = c;
 	new_node->n = NULL;
 	new_node->p = NULL;
+	new_node->i = -1;
 	return (new_node);
 }
 
-void	ft_node_add_back(t_node **node_lst, t_node *new_node)
+void	ft_list_node_add_back(t_node **node_lst, t_node *new_node)
 {
 	t_node	*current;
 
@@ -41,7 +42,7 @@ void	ft_node_add_back(t_node **node_lst, t_node *new_node)
 	new_node->p = current;
 }
 
-int	ft_node_list_size(t_node *lst)
+int	ft_list_size(t_node *lst)
 {
 	int		i;
 	t_node	*current;
@@ -56,7 +57,7 @@ int	ft_node_list_size(t_node *lst)
 	return (i);
 }
 
-t_node	*ft_last_node(t_node **list)
+t_node	*ft_list_find_last_node(t_node **list)
 {
 	t_node	*current;
 
@@ -66,13 +67,22 @@ t_node	*ft_last_node(t_node **list)
 	return (current);
 }
 
-// void	ft_node_iter(t_node *lst, void (*f)(void *))
-// {
-// 	if (!lst || !f)
-// 		return ;
-// 	while (lst)
-// 	{
-// 		f(lst->c);
-// 		lst = lst->n;
-// 	}
-// }
+int	ft_list_check_sorted(t_node **list)
+{
+	int		i;
+	t_node	*current;
+
+	i = 1;
+	current = *list;
+	while (current != NULL)
+	{
+		if (current->n)
+		{
+			if (current->c > current->n->c)
+				i = 0;
+		}
+		current = current->n;
+	}
+	return (i);
+}
+

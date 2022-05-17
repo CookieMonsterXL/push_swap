@@ -21,32 +21,32 @@ void	status_nodes(t_node **head_node_a, t_node **head_node_b)
 	t_node	*temp;
 // 	LIST A
 	temp = *head_node_a;
-	i = ft_node_list_size(temp);
+	i = ft_list_size(temp);
 	printf("list A\n");
 	printf("length: %d\n", i);
 
 	while (temp && temp->n)
 	{
-		printf("\tvalue= %d\n", temp->c);
+		printf("\tvalue= %d index=%d\n", temp->c, temp->i);
 		if (temp->n != NULL)
 			temp = temp->n;
 	}
 	if (temp)
-		printf("\tvalue= %d\n", temp->c);
+		printf("\tvalue= %d index=%d\n", temp->c, temp->i);
 // 	LIST B
 	temp = *head_node_b;
-	i = ft_node_list_size(temp);
+	i = ft_list_size(temp);
 	printf("list B\n");
 	printf("length: %d\n", i);
 	if (temp)
 	{
 		while (temp->n)
 		{
-			printf("\tvalue= %d\n", temp->c);
+			printf("\tvalue= %d index=%d\n", temp->c, temp->i);
 			if (temp->n != NULL)
 				temp = temp->n;
 		}
 		if (temp)
-			printf("\tvalue= %d\n", temp->c);
+			printf("\tvalue= %d index=%d\n", temp->c, temp->i);
 	}
 }

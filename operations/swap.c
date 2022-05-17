@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:10 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 17:56:13 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/17 15:48:45 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,28 @@
 // SWAP LIST A OR B, (SA, SB)
 void	swap(t_node **list, char *op)
 {
-	int	cont_1;
-	int	len;
+	t_node	*temp;
+	t_node	*temp1;
+	int		len;
 
-	len = ft_node_list_size(*list);
+	temp = *list;
+	temp1 = temp->n;
+	len = ft_list_size(*list);
 	if (len < 2)
 		return (stupid_move(op));
-	cont_1 = (*list)->c;
-	(*list)->c = (*list)->n->c;
-	(*list)->n->c = cont_1;
+	temp1->n = temp;
+	temp1->p = NULL;
+	if (len > 2)
+	{
+		temp->p = temp->n;
+		temp->n = temp->n->n;
+	}
+	else
+	{
+		temp->n = NULL;
+		temp->p = temp1;
+	}
+	*list = temp1;
 	if (op)
 		print_operation(op);
 }

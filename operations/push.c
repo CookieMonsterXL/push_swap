@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 17:55:05 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/17 12:28:12 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ void	push(t_lists_a_b *lists, char *op)
 	int		len;
 
 	if (op == PB)
-		len = ft_node_list_size(lists->a);
+		len = ft_list_size(lists->a);
 	else
-		len = ft_node_list_size(lists->b);
+		len = ft_list_size(lists->b);
 	if (len < 1)
 		return (stupid_move(op));
 	else if (len >= 2 && op == PB)

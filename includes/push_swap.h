@@ -17,13 +17,15 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <limits.h>
 
 int		*g_op_counter; //GLOBEL COUNTER REMOVE LATER
 
+//c = content, n = next, p = previous
 typedef struct s_node
 {
 	int				c;
-	int				index;
+	int				i;
 	struct s_node	*n;
 	struct s_node	*p;
 }	t_node;
@@ -36,10 +38,12 @@ typedef struct s_list_a_b
 
 // NODES
 t_node	*ft_new_node(int c);
-void	ft_node_add_back(t_node **node_lst, t_node *new_node);
+void	ft_list_node_add_back(t_node **node_lst, t_node *new_node);
 void	ft_node_iter(t_node *lst, void (*f)(void *));
-int		ft_node_list_size(t_node *lst);
-t_node	*ft_last_node(t_node **list);
+int		ft_list_size(t_node *lst);
+t_node	*ft_list_find_last_node(t_node **list);
+int		ft_list_check_sorted(t_node **list);
+void	ft_list_make_index(t_node **list_a);
 
 // ACTIONS
 // void	swap_OLD(t_node **list_a, char *op);
@@ -53,6 +57,7 @@ void	r_rotate(t_node **list, char *op);
 void	r_rotate_rr(t_lists_a_b *lists);
 
 // SORT
+void	sort2(t_node **list_a);
 void	sort3(t_node **list_a);
 void	sort5(t_lists_a_b *lists);
 

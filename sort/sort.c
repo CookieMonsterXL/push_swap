@@ -6,12 +6,18 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:02:50 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/15 18:33:16 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/17 12:29:33 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
+
+void	sort2(t_node **list_a)
+{
+	if ((*list_a)->c > (*list_a)->n->c)
+		swap(list_a, SA);
+}
 
 void	sort3(t_node **list_a)
 {
@@ -46,7 +52,7 @@ static void	sort5_h(t_lists_a_b *lists, int high, int low, t_node *last_a)
 {
 	while (1)
 	{
-		last_a = ft_last_node(&lists->a);
+		last_a = ft_list_find_last_node(&lists->a);
 		if (lists->b->c > lists->a->c && lists->b->c < lists->a->n->c)
 		{
 			rotate(&lists->a, RA);
@@ -70,7 +76,7 @@ static void	sort5_h(t_lists_a_b *lists, int high, int low, t_node *last_a)
 			rotate(&lists->a, RA);
 	}
 }
-// IF LIST IS SORTED SORT5 WILL STILL PUSH 2X TO LIST B
+
 void	sort5(t_lists_a_b *lists)
 {
 	t_node	*last_a;
@@ -78,8 +84,10 @@ void	sort5(t_lists_a_b *lists)
 	int		low;
 	int		high;
 
-	len = ft_node_list_size(lists->a);
-	last_a = ft_last_node(&lists->a);
+	if (ft_list_check_sorted(&lists->a))
+		return ;
+	len = ft_list_size(lists->a);
+	last_a = ft_list_find_last_node(&lists->a);
 	if (len > 3)
 		push(lists, PB);
 	if (len > 4)
@@ -89,7 +97,7 @@ void	sort5(t_lists_a_b *lists)
 	high = lists->a->n->n->c;
 	while (lists->b)
 		sort5_h(lists, high, low, last_a);
-	last_a = ft_last_node(&lists->a);
+	last_a = ft_list_find_last_node(&lists->a);
 	while (lists->a->c > last_a->c)
 	{
 		last_a = last_a->p;
