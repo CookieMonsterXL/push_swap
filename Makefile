@@ -6,7 +6,7 @@
 #    By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 15:49:51 by tbouma            #+#    #+#              #
-#    Updated: 2022/05/17 17:26:24 by tbouma           ###   ########.fr        #
+#    Updated: 2022/05/18 11:59:25 by tbouma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ obj/utils/index.o obj/sort/bucket_sort.o
 LIBFT := includes/libft/libft.a
 HEADERS := -I includes/libft/
 CFLAGS := -Wall -Wextra -Werror
-CC := gcc
+CC := gcc -g
 
 all: $(LIBFT) $(NAME)
 
