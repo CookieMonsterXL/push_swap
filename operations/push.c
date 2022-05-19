@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 12:28:12 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/19 17:55:14 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,4 @@ void	push(t_lists_a_b *lists, char *op)
 		push_last_node_to_other_list(&lists->b, &lists->a);
 	print_operation(op);
 }
+
