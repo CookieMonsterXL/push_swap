@@ -5,100 +5,114 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/17 16:49:37 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/18 15:49:50 by tbouma           ###   ########.fr       */
+/*   Created: 2022/05/18 17:06:44 by tbouma            #+#    #+#             */
+/*   Updated: 2022/05/19 11:04:32 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
-void	rotate_b_back(t_node **list_b)
+void	sort_b_hi_to_lo(t_node *list_b)
 {
-	t_node	*last;
+	t_node	*last_b;
+
+	last_b = ft_list_find_last_node(&list_b);
+	while (list_b->i < last_b->i)
+		r_rotate(&list_b, RRB);
+}
+
+void	find_spot_to_insert_in_b(t_lists_a_b *lists)
+{
+	t_node	*last_b;
 
 	while (1)
 	{
-		last = ft_list_find_last_node(list_b);
-		if ((*list_b)->i < last->i)
-			r_rotate(list_b, RRB);
-		else
-			break ;
+		last_b = ft_list_find_last_node(&lists->b);
+		if (last_b->i < lists->a->i && lists->b->i < lists->a->i) //list_a is greater and list_b is good
+			return ;
+		else if (last_b->i > lists->a->i && lists->b->i > lists->a->i) //list_a is smaller then both
+			rotate(&lists->b, RB);
+		else if (lists->b->i < lists->a->i && last_b->i > lists->a->i)//list_a is between last_b and list_b
+			return ;
+		else if (lists->b->i > lists->a->i) //list_a is greater and list b in incurect order.
+			r_rotate(&lists->b, RRB);
 	}
 }
 
-void	push_bucket(int limit_lo, int limit_hi, t_lists_a_b *lists)
+void	find_next_in_a(t_node **list_a, t_bucket *bucket)
 {
 	int	i;
-	//t_node	*current;
-	t_node	*last;
 
-	i = 1;
-	if (!lists->b)
-		push(lists, PB);
-	while (limit_hi - limit_lo >= i)
+	i = 0;
+	while (i <= ft_list_size(*list_a))
 	{
-		//current = lists->a;
-		last = ft_list_find_last_node(&lists->b);
-		if (lists->a->i >= limit_lo && lists->a->i <= limit_hi)
-		{
-			if (((lists->b->i < lists->a->i) && last->i < lists->a->i) || ft_list_size(lists->b) == 1)
-			{
-				push(lists, PB);
-				i++;
-				continue ;
-			}
-			else
-			{
-				rotate(&lists->b, RB);
-				continue ;
-			}
-		}
-		printf("limith=%d limitl=%d\n", limit_hi, limit_lo);
-		rotate(&lists->a, RA);
+		if ((*list_a)->i >= bucket->limit_lo && (*list_a)->i <= bucket->limit_hi)
+			return ;
+		else
+			rotate(list_a, RA);
+		i++;
 	}
-	rotate_b_back(&lists->b);
 }
 
-void	make_next_bucket(int *limit_lo, int *limit_hi, int length, int bucket_n)
+void	push_bucket(t_lists_a_b *lists, t_bucket *bucket)
 {
-	*limit_lo = *limit_hi + 1;
-	*limit_hi = ((length + 1) / bucket_n) + *limit_lo;
+	int	i;
+
+	i = 0;
+	while (bucket->limit_hi - bucket->limit_lo >= i)
+	{
+		find_next_in_a(&lists->a, bucket);
+		find_spot_to_insert_in_b(lists);
+		push(lists, PB);
+		i++;
+	}
+
+	//sort_b_hi_to_lo(lists->b);
+}
+
+void	make_next_bucket(t_bucket *bucket, int length_list)
+{
+	bucket->number++;
+	if (bucket->number == 1)
+		bucket->limit_lo = 0;
+	else
+		bucket->limit_lo = bucket->limit_hi + 1;
+	if (bucket->number == bucket->amount_buckets)
+		bucket->limit_hi = length_list;
+	else
+	bucket->limit_hi = length_list / bucket->amount_buckets + bucket->limit_lo;
+}
+
+int	find_amount_of_buckets(int length_list)
+{
+	if (length_list < 10)
+		return (1);
+	else if (length_list >= 10 && length_list <= 50)
+		return (length_list / 10);
+	else if (length_list > 50 && length_list <= 250)
+		return (5);
+	else if (length_list > 250 && length_list <= 500)
+		return (length_list / 50);
+	return (10);
 }
 
 void	bucketsort(t_lists_a_b *lists)
 {
-	int		length_list;
-	int		limit_hi;
-	int		limit_lo;
-	int		bucket_n;
-	t_node	*temp;
+	int			length_list;
+	t_bucket	bucket;
 
-	limit_hi = -1;
-	printf("%d\n", limit_hi);
-	bucket_n = 5;
-	temp = lists->a;
 	length_list = ft_list_size(lists->a);
-	while (length_list > limit_hi)
+	bucket.number = 0;
+	bucket.amount_buckets = find_amount_of_buckets(length_list);
+
+	while (1)
 	{
-		printf("limithi=%d\n", limit_hi);
-		make_next_bucket(&limit_lo, &limit_hi, length_list, bucket_n);
-		push_bucket(limit_lo, limit_hi, lists);
-
+		make_next_bucket(&bucket, length_list);
+		push_bucket(lists, &bucket);
+		sort_b_hi_to_lo(lists->b);
 	}
-
-	//printf("Buck lim= %d\n", limit_hi);
-	// while (length_list > 0)
-	// {
-	// 	if (lists->a->i < limit_hi)
-	// 		push(lists, PB);
-	// 	rotate(&lists->a, RA);
-	// 	length_list--;
-	// }
+	// sort_last_bucket();
+	// push_whole_list_to_a();
 
 }
-
-// void	sort_index(t_lists_a_b *lists)
-// {
-
-// }

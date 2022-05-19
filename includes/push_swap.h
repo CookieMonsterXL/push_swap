@@ -36,6 +36,14 @@ typedef struct s_list_a_b
 	struct s_node	*b;
 }	t_lists_a_b;
 
+typedef struct s_bucket
+{
+	int	limit_hi;
+	int	limit_lo;
+	int	amount_buckets;
+	int	number;
+}	t_bucket;
+
 // NODES
 t_node	*ft_new_node(int c);
 void	ft_list_node_add_back(t_node **node_lst, t_node *new_node);
@@ -62,6 +70,8 @@ void	sort3(t_node **list_a);
 void	sort5(t_lists_a_b *lists);
 
 void	bucketsort(t_lists_a_b *lists);
+
+int	find_amount_of_buckets(int length_list);
 
 // STATUS
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);
