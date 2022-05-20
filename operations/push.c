@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/19 17:55:14 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:39:12 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,3 +75,7 @@ void	push(t_lists_a_b *lists, char *op)
 	print_operation(op);
 }
 
+
+		// printf("next \t\t%p\n", (*list_to)->n);
+		// printf("prev \t\t%p\n", (*list_to)->p);
+		// printf("current \t%p\n", (*list_to));

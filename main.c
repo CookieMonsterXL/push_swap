@@ -6,14 +6,14 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 17:27:41 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:40:28 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft/libft.h"
 #include "includes/push_swap.h"
 
-int			*g_op_counter;//GLOBEL COUNTER REMOVE LATER
+int	*g_op_counter;//GLOBEL COUNTER REMOVE LATER
 
 int	main(int argc, char **argv)
 {
@@ -32,18 +32,19 @@ int	main(int argc, char **argv)
 		ft_list_node_add_back(&lists.a, temp_node);
 		i++;
 	}
-	ft_list_make_index(&lists.a);
-	status_nodes(&lists.a, &lists.b);
+	ft_list_make_index_bucket(&lists.a);
 	length_list = ft_list_size(lists.a);
 	if (length_list == 2)
 		sort2(&lists.a);
-	if (length_list == 3)
+	else if (length_list == 3)
 		sort3(&lists.a);
-	if (length_list > 3 && length_list < 6)
+	else if (length_list > 3 && length_list < 6)
 		sort5(&lists);
-	if (length_list > 5)
+	else if (length_list > 5)
 		bucketsort(&lists);
 	status_nodes(&lists.a, &lists.b);
-	printf("operation counter=%d\n", *g_op_counter); //GLOBEL COUNTER REMOVE LATER
+	//printf("operation counter=%d\n", *g_op_counter); //GLOBEL COUNTER REMOVE LATER
 	return (0);
 }
+
+	//status_nodes(&lists.a, &lists.b);

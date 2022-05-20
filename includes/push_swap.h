@@ -21,13 +21,17 @@
 
 int		*g_op_counter; //GLOBEL COUNTER REMOVE LATER
 
-//c = content, n = next, p = previous
+//c = content, n = next, p = previous b_n = bucket_number a_b = amount of buckets, a_i_b = amount in this bucket
 typedef struct s_node
 {
 	int				c;
 	int				i;
 	struct s_node	*n;
 	struct s_node	*p;
+	int				b_n;
+	int				a_b;
+	int				a_i_b;
+	int				t_l_s;
 }	t_node;
 
 typedef struct s_list_a_b
@@ -36,13 +40,13 @@ typedef struct s_list_a_b
 	struct s_node	*b;
 }	t_lists_a_b;
 
-typedef struct s_bucket
-{
-	int	limit_hi;
-	int	limit_lo;
-	int	amount_buckets;
-	int	number;
-}	t_bucket;
+// typedef struct s_bucket
+// {
+// 	int	limit_hi;
+// 	int	limit_lo;
+// 	int	amount_buckets;
+// 	int	number;
+// }	t_bucket;
 
 // NODES
 t_node	*ft_new_node(int c);
@@ -51,7 +55,7 @@ void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_list_size(t_node *lst);
 t_node	*ft_list_find_last_node(t_node **list);
 int		ft_list_check_sorted(t_node **list);
-void	ft_list_make_index(t_node **list_a);
+void	ft_list_make_index_bucket(t_node **list_a);
 
 // ACTIONS
 // void	swap_OLD(t_node **list_a, char *op);

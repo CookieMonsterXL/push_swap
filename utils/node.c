@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 16:05:02 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:41:03 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ t_node	*ft_new_node(int c)
 	new_node->n = NULL;
 	new_node->p = NULL;
 	new_node->i = -1;
+	new_node->a_b = -1;
+	new_node->a_i_b = -1;
+	new_node->b_n = -1;
+	new_node->t_l_s = -1;
 	return (new_node);
 }
 

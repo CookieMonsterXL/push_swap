@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort3.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:02:50 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 12:29:33 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/20 18:17:03 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	sort5_h(t_lists_a_b *lists, int high, int low, t_node *last_a)
 {
 	while (1)
 	{
+		status_nodes(&lists->a, &lists->b);
 		last_a = ft_list_find_last_node(&lists->a);
 		if (lists->b->c > lists->a->c && lists->b->c < lists->a->n->c)
 		{

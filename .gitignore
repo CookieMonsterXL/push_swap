@@ -2,3 +2,6 @@ push_swap
 obj/
 OLD.c
 .vscode/
+checker_Mac
+ramdom_numers.py
+tester/

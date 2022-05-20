@@ -25,14 +25,17 @@ void	status_nodes(t_node **head_node_a, t_node **head_node_b)
 	printf("list A\n");
 	printf("length: %d\n", i);
 
-	while (temp && temp->n)
+	if (temp != NULL)
 	{
-		printf("\tvalue= %d index=%d\n", temp->c, temp->i);
-		if (temp->n != NULL)
-			temp = temp->n;
+		while (temp && temp->n)
+		{
+			printf("\tvalue= %d index=%d bucket-N=%d\n", temp->c, temp->i, temp->b_n);
+			if (temp->n != NULL)
+				temp = temp->n;
+		}
+		if (temp)
+			printf("\tvalue= %d index=%d bucket-N=%d\n", temp->c, temp->i, temp->b_n);
 	}
-	if (temp)
-		printf("\tvalue= %d index=%d\n", temp->c, temp->i);
 // 	LIST B
 	temp = *head_node_b;
 	i = ft_list_size(temp);
@@ -42,11 +45,11 @@ void	status_nodes(t_node **head_node_a, t_node **head_node_b)
 	{
 		while (temp->n)
 		{
-			printf("\tvalue= %d index=%d\n", temp->c, temp->i);
+			printf("\tvalue= %d index=%d bucket-N=%d\n", temp->c, temp->i, temp->b_n);
 			if (temp->n != NULL)
 				temp = temp->n;
 		}
 		if (temp)
-			printf("\tvalue= %d index=%d\n", temp->c, temp->i);
+			printf("\tvalue= %d index=%d bucket-N=%d\n", temp->c, temp->i, temp->b_n);
 	}
 }
