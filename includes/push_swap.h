@@ -47,8 +47,9 @@ t_node	*ft_list_find_last_node(t_node **list);
 int		ft_list_check_sorted(t_node **list);
 
 //INDEXING & BUCKETS
-void	ft_list_make_index_bucket(t_node **list_a);
+void	list_make_index_bucket(t_node **list_a);
 int		find_amount_of_buckets(int length_list);
+void	do_bucket_stuff(t_node **list_a, int amount_of_buckets);
 
 // ACTIONS
 void	swap(t_node **list, char *op);
@@ -68,6 +69,8 @@ void	sort5(t_lists_a_b *lists);
 
 //SORT > 5
 void	bucketsort(t_lists_a_b *lists);
+void	push_whole_list_to_a(t_lists_a_b *lists);
+void	sort_b_hi_to_lo(t_node **list_b);
 
 // STATUS To run diacnostics. Add this funtion whereever you want in the code. Tip, do it before and after sorting.
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);

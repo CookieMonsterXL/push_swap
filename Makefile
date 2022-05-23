@@ -6,14 +6,14 @@
 #    By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 15:49:51 by tbouma            #+#    #+#              #
-#    Updated: 2022/05/23 15:31:23 by tbouma           ###   ########.fr        #
+#    Updated: 2022/05/23 19:06:04 by tbouma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
 OBJFILES := obj/main.o obj/status.o obj/utils/node.o obj/operations/swap.o \
 obj/operations/push.o obj/operations/rotate.o obj/utils/print.o obj/sort/sort.o \
-obj/utils/index.o obj/sort/bucket_sort.o
+obj/utils/index.o obj/sort/bucket_sort.o obj/sort/bucket_sort2.o obj/utils/bucket.o
 LIBFT := includes/libft/libft.a
 HEADERS := -I includes/libft/
 CFLAGS := -Wall -Wextra -Werror
