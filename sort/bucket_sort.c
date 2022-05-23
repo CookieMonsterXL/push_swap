@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:06:44 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/20 19:41:26 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:53:44 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 
 void	push_whole_list_to_a(t_lists_a_b *lists)
 {
-	// printf("PUSH ALL BACK TO A. FINISH!!!!!!!!!!!!!!!!!!!!!\n");
 	while (lists->b)
 		push(lists, PA);
 }
 
 void	sort_b_hi_to_lo(t_node **list_b)
 {
-		// printf("SORT B BACK TO NORMAL\n");
 	t_node	*last_b;
 
 	last_b = ft_list_find_last_node(list_b);
@@ -33,11 +31,8 @@ void	sort_b_hi_to_lo(t_node **list_b)
 	}
 }
 
-		// printf("TEst11\n");
 int	find_spot_to_insert_in_b(t_lists_a_b *lists, int i)
 {
-	// printf("FINDING RIGHT INDEX B\n");
-
 	t_node	*last_b;
 
 	if (lists->b == NULL || lists->b->n == NULL)
@@ -61,7 +56,7 @@ int	find_spot_to_insert_in_b(t_lists_a_b *lists, int i)
 			else
 				return i;
 		}
-		else if (lists->a->i < lists->b->i) //list_a is greater and list b in incurect order.
+		else if (lists->a->i < lists->b->i)
 			{
 				rotate(&lists->b, RB);
 				i++;
@@ -72,7 +67,6 @@ int	find_spot_to_insert_in_b(t_lists_a_b *lists, int i)
 
 int	find_next_in_a(t_node **list_a, int current_bucket)
 {
-	// printf("FINGING RIGHT INDEX A\n");
 	int	i;
 
 	i = 0;
@@ -102,6 +96,8 @@ void	push_bucket(t_lists_a_b *lists, int bucket_number)
 		find_next_in_a(&lists->a, bucket_number);
 		b = find_spot_to_insert_in_b(lists, b);
 		push(lists, PB);
+		if (ft_list_size(lists->b) == 2)
+			sort2_b(&lists->b);
 		i++;
 	}
 }
@@ -109,11 +105,11 @@ void	push_bucket(t_lists_a_b *lists, int bucket_number)
 void	bucketsort(t_lists_a_b *lists)
 {
 	// printf("BUCKETSORT\n");
-	int			length_list;
+	//int			length_list;
 	int			bucket_number;
 	int			amount_of_buckets;
 
-	length_list = ft_list_size(lists->a);
+	//length_list = ft_list_size(lists->a);
 	amount_of_buckets = lists->a->a_b;
 	bucket_number = 0;
 

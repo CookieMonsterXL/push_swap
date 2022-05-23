@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:22:33 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/17 12:29:16 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/23 15:46:36 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	rotate_rr(t_lists_a_b *lists)
 	print_operation(RR);
 }
 
-// seg fault in r _rotate, rotate gaat goed
 void	r_rotate(t_node **list, char *op)
 {
 	t_node	*temp;
@@ -67,6 +66,3 @@ void	r_rotate_rr(t_lists_a_b *lists)
 	r_rotate(&lists->b, NULL);
 	print_operation(RRR);
 }
-
-	// printf("test\n");
-	// printf("test\n");
