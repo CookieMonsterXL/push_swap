@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:10 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:38:58 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:35:31 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,3 @@ void	swap_ss(t_lists_a_b *lists)
 	swap(&lists->b, NULL);
 	print_operation(SS);
 }
-
-	// int z = 0;
-	// while (z < 3)
-	// {
-	// 	printf("next \t\t%p\n", temp1->n);
-	// 	printf("prev \t\t%p\n", temp1->p);
-	// 	printf("current \t%p\n", temp1);
-	// 	printf("len = \t%d\n", len);
-	// 	temp1 = temp1->n;
-	// 	z++;
-	// }
-	// printf("next \t\t%p\n", temp1->n);
-	// printf("prev \t\t%p\n", temp1->p);
-	// printf("current \t%p\n", temp1);
-	// printf("len = \t%d\n", len);

@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:49:14 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:25:50 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:45:18 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	need_indexing(t_node **list_a)
 	return (need_indexing);
 }
 
-void	do_indexing(t_node **list_a, int buckets, int size, int range)
+static void	do_indexing(t_node **list_a, int buckets, int size, int range)
 {
 	t_node	*current;
 	int		i;

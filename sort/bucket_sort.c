@@ -6,14 +6,14 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:06:44 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:33:40 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:47:28 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
-void	sort3_b(t_node **list_b)
+static void	sort3_b(t_node **list_b)
 {
 	if ((*list_b)->i > (*list_b)->n->i)
 		return ;
@@ -23,7 +23,7 @@ void	sort3_b(t_node **list_b)
 		swap(list_b, SB);
 }
 
-int	find_next_in_a(t_node **list_a, int current_bucket)
+static int	find_next_in_a(t_node **list_a, int current_bucket)
 {
 	int	i;
 	int	len;
@@ -41,7 +41,7 @@ int	find_next_in_a(t_node **list_a, int current_bucket)
 	return ((*list_a)->a_i_b);
 }
 
-void	push_bucket(t_lists_a_b *lists, int bucket_number)
+static void	push_bucket(t_lists_a_b *lists, int bucket_number)
 {
 	int	i;
 	int	b;
@@ -66,6 +66,7 @@ void	push_bucket(t_lists_a_b *lists, int bucket_number)
 	}
 }
 
+//Sorts form 6 and higher
 void	bucketsort(t_lists_a_b *lists)
 {
 	int	bucket_number;

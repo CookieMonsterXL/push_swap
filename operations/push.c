@@ -6,14 +6,13 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:38:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/23 15:46:00 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:40:59 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
-// PUSH TO A OR B, INSERT PA or PB
 static void	push_node_to_other_list(t_node **list_from, t_node **list_to)
 {
 	t_node	*temp_from;
@@ -54,23 +53,24 @@ static void	push_last_node_to_other_list(t_node **list_from, t_node **list_to)
 	}
 }
 
+// PUSH TO A OR B, INSERT PA or PB
 void	push(t_lists_a_b *lists, char *op)
 {
 	int		len;
 
-	if (op == PB)
+	if (ft_strncmp(op, PB, 3) == 0)
 		len = ft_list_size(lists->a);
 	else
 		len = ft_list_size(lists->b);
 	if (len < 1)
 		return (stupid_move(op));
-	else if (len >= 2 && op == PB)
+	else if (len >= 2 && (ft_strncmp(op, PB, 3) == 0))
 		push_node_to_other_list(&lists->a, &lists->b);
-	else if (len >= 2 && op == PA)
+	else if (len >= 2 && (ft_strncmp(op, PA, 3) == 0))
 		push_node_to_other_list(&lists->b, &lists->a);
-	else if (len == 1 && op == PB)
+	else if (len == 1 && (ft_strncmp(op, PB, 3) == 0))
 		push_last_node_to_other_list(&lists->a, &lists->b);
-	else if (len == 1 && op == PA)
+	else if (len == 1 && (ft_strncmp(op, PA, 3) == 0))
 		push_last_node_to_other_list(&lists->b, &lists->a);
 	print_operation(op);
 }

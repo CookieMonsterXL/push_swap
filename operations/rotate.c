@@ -6,13 +6,14 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 16:22:33 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/23 15:46:36 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:36:47 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
+//Rotate first becomes last. Add RA or RB
 void	rotate(t_node **list, char *op)
 {
 	t_node	*temp;
@@ -40,6 +41,7 @@ void	rotate_rr(t_lists_a_b *lists)
 	print_operation(RR);
 }
 
+//Rotate last becomes first. Add RRA or RRB
 void	r_rotate(t_node **list, char *op)
 {
 	t_node	*temp;

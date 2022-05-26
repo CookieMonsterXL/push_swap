@@ -6,23 +6,23 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 11:02:50 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:33:12 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:47:38 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
-void	sort2(t_node **list_a)
-{
-	if ((*list_a)->c > (*list_a)->n->c)
-		swap(list_a, SA);
-}
-
 void	sort2_b(t_node **list_b)
 {
 	if ((*list_b)->i < (*list_b)->n->i)
 		swap(list_b, SB);
+}
+
+void	sort2(t_node **list_a)
+{
+	if ((*list_a)->c > (*list_a)->n->c)
+		swap(list_a, SA);
 }
 
 void	sort3(t_node **list_a)

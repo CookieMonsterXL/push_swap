@@ -6,14 +6,14 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:27:41 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:30:49 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:41:11 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
 
-void	sort_h_5(t_lists_a_b *lists)
+static void	sort_h_5(t_lists_a_b *lists)
 {
 	t_node	*last_a;
 

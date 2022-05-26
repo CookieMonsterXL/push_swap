@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,7 +8,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:16:08 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 13:16:40 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 14:00:14 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +18,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <unistd.h>
 
 //c = content, n = next, p = previous b_n = bucket_number
 // a_b = amount of buckets,
@@ -41,7 +44,6 @@ typedef struct s_list_a_b
 // NODES
 t_node	*ft_new_node(int c);
 void	ft_list_node_add_back(t_node **node_lst, t_node *new_node);
-// void	ft_node_iter(t_node *lst, void (*f)(void *));
 int		ft_list_size(t_node *lst);
 t_node	*ft_list_find_last_node(t_node **list);
 int		ft_list_check_sorted(t_node **list);
