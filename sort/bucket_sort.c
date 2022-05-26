@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:06:44 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 11:56:49 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 12:33:40 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	push_bucket(t_lists_a_b *lists, int bucket_number)
 	int	i;
 	int	b;
 	int	amount_in_bucket;
-	int amount_pushed;
+	int	amount_pushed;
 
 	amount_pushed = 0;
 	i = 0;

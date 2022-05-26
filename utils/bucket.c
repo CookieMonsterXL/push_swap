@@ -6,12 +6,28 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:59:13 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/23 18:59:14 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:15:41 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
+
+// void	do_bucket_stuff_h(t_node ** list_a, t_node *current, int *arr)
+// {
+// 	while (current)
+// 	{
+// 		(arr[current->b_n])++;
+// 		current = current->n;
+// 	}
+// 	//i = 0;
+// 	current = *list_a;
+// 	while (current)
+// 	{
+// 		current->a_i_b = arr[current->b_n];
+// 		current = current->n;
+// 	}
+// }
 
 //Calculate the amount in each bucket, 
 //and puts the value in a_i_b (amount in this bucket)
@@ -29,13 +45,11 @@ void	do_bucket_stuff(t_node **list_a, int amount_of_buckets)
 		i++;
 	}
 	current = *list_a;
-	i = 0;
 	while (current)
 	{
 		(arr[current->b_n])++;
 		current = current->n;
 	}
-	i = 0;
 	current = *list_a;
 	while (current)
 	{

@@ -6,13 +6,12 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 15:49:14 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/23 19:00:38 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 12:25:50 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft/libft.h"
 #include "../includes/push_swap.h"
-
 
 static int	find_low(t_node **list_a)
 {
@@ -84,5 +83,4 @@ void	list_make_index_bucket(t_node **list_a)
 	range = (size) / buckets;
 	do_indexing(list_a, buckets, size, range + 1);
 	do_bucket_stuff(list_a, buckets);
-
 }

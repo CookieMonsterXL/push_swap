@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:15:30 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 13:23:40 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(int argc, char **argv)
 
 	make_list(&lists, argc, argv);
 	list_make_index_bucket(&lists.a);
-	// status_nodes(&lists.a, &lists.b);
 	length_list = ft_list_size(lists.a);
 	if (length_list == 2)
 		sort2(&lists.a);
@@ -48,6 +47,5 @@ int	main(int argc, char **argv)
 		sort5(&lists);
 	else if (length_list > 5)
 		bucketsort(&lists);
-	// status_nodes(&lists.a, &lists.b);
 	return (0);
 }

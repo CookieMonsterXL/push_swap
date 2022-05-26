@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:06:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:12:48 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/26 12:31:12 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int *checker, int i)
 {
 	if (lists->a->i > last_b->i)
 	{
-		if (last_b->i > lists->b->i)//(i > 0)
+		if (last_b->i > lists->b->i)
 		{
 			r_rotate(&lists->b, RRB);
 			i--;
@@ -34,11 +34,11 @@ int *checker, int i)
 		*checker = -1;
 		return (i);
 	}
-	// *checker = -1;
 	return (i);
 }
 
-static int	find_spot_to_insert_b_2(t_lists_a_b *lists, int i, int *checker, int amount_pushed)
+static int	find_spot_to_insert_b_2(t_lists_a_b *lists, int i,
+int *checker, int amount_pushed)
 {
 	t_node	*last_b;
 
@@ -52,32 +52,12 @@ static int	find_spot_to_insert_b_2(t_lists_a_b *lists, int i, int *checker, int 
 			*checker = -1;
 			return (i);
 		}
-		// else if (lists->a->i )
-		// else if (lists->b->i < last_b->i)
-		// {
-		// 	r_rotate(&lists->b, RRB);
-		// 	i--;
-		// 	return (i);
-		// }
-		// else if (lists->b->i > last_b->i && i < 0)
-		// {
-		// 	*checker = -1;
-		// 	return (i);
-		// }
 		else
 		{
 			rotate(&lists->b, RB);
 			i++;
 			return (i);
 		}
-		// if (lists->a->i < last_b->i && last_b->i < lists->b->i)
-		// {
-		// 	*checker = -1;
-		// 	return (i);
-		// }
-		// else
-		// {
-		// }
 	}
 	return (i);
 }
@@ -99,7 +79,6 @@ int	find_spot_to_insert_in_b(t_lists_a_b *lists, int i, int amount_pushed)
 	free(checker);
 	return (i);
 }
-//---------------------------
 
 void	push_whole_list_to_a(t_lists_a_b *lists)
 {
