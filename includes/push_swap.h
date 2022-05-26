@@ -71,6 +71,7 @@ void	sort5(t_lists_a_b *lists);
 void	bucketsort(t_lists_a_b *lists);
 void	push_whole_list_to_a(t_lists_a_b *lists);
 void	sort_b_hi_to_lo(t_node **list_b);
+int		find_spot_to_insert_in_b(t_lists_a_b *lists, int i, int amount_pushed);
 
 // STATUS To run diacnostics. Add this funtion whereever you want in the code. Tip, do it before and after sorting.
 void	status_nodes(t_node **head_node_a, t_node **head_node_b);
