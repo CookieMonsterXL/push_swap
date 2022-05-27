@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -8,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:16:08 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 14:00:14 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/27 12:34:33 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +80,10 @@ void	status_nodes(t_node **head_node_a, t_node **head_node_b);
 // PRINT
 void	print_operation(char *operation);
 void	stupid_move(char *op);
+void	error_mgs(void);
+
+//utils
+void	check_dubble_values(t_node **list_a);
 
 // DIFINE All PRINTED OPERATIONS
 # define SA		"sa\n"

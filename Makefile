@@ -6,7 +6,7 @@
 #    By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 15:49:51 by tbouma            #+#    #+#              #
-#    Updated: 2022/05/27 10:48:07 by tbouma           ###   ########.fr        #
+#    Updated: 2022/05/27 12:32:44 by tbouma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME := push_swap
 OBJFILES := obj/main.o obj/utils/node.o obj/operations/swap.o \
 obj/operations/push.o obj/operations/rotate.o obj/utils/print.o obj/sort/sort234.o \
 obj/utils/index.o obj/sort/bucket_sort.o obj/sort/bucket_sort2.o obj/utils/bucket.o \
-obj/sort/sort5.o
+obj/sort/sort5.o obj/utils/utils.o
 OBJFILES_DEBUG := obj/status.o
 LIBFT := includes/libft/libft.a
 HEADERS := -I includes/libft/
