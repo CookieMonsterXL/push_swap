@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/27 12:34:12 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/27 15:27:33 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	make_int_and_check_max_min(char *str)
 	int	num;
 
 	num = ft_atoi(str);
-	if (ft_strncmp(str, "0", 1) != 0 && num == 0)
+	if (ft_strncmp(str, "0\0", 2) != 0 && num == 0)
 		error_mgs();
 	return (num);
 }
@@ -79,9 +79,14 @@ int	main(int argc, char **argv)
 	t_lists_a_b	*lists;
 	int			length_list;
 
+	if (argc < 2)
+		exit(1);
 	check_nummbers(argv);
 	lists = make_list(argc, argv);
+	if (ft_list_check_sorted(&lists->a))
+		exit(0);
 	list_make_index_bucket(&lists->a);
+	//status_nodes(&lists->a, &lists->b);
 	length_list = ft_list_size(lists->a);
 	if (length_list == 2)
 		sort2(&lists->a);
@@ -93,6 +98,7 @@ int	main(int argc, char **argv)
 		sort5(lists);
 	else if (length_list > 5)
 		bucketsort(lists);
+//	status_nodes(&lists->a, &lists->b);
 	exit(0);
 	return (0);
 }
