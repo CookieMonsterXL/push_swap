@@ -6,13 +6,13 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 12:56:23 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/27 13:11:34 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/27 13:12:53 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft/libft.h"
-#include "includes/push_swap.h"
-#include <stdio.h>
+// #include "includes/libft/libft.h"
+// #include "includes/push_swap.h"
+// #include <stdio.h>
 
 // void	print_b(t_node **head_node_b)
 // {
