@@ -6,18 +6,20 @@
 #    By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 15:49:51 by tbouma            #+#    #+#              #
-#    Updated: 2022/05/26 14:40:26 by tbouma           ###   ########.fr        #
+#    Updated: 2022/05/27 10:48:07 by tbouma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := push_swap
-OBJFILES := obj/main.o obj/status.o obj/utils/node.o obj/operations/swap.o \
+OBJFILES := obj/main.o obj/utils/node.o obj/operations/swap.o \
 obj/operations/push.o obj/operations/rotate.o obj/utils/print.o obj/sort/sort234.o \
 obj/utils/index.o obj/sort/bucket_sort.o obj/sort/bucket_sort2.o obj/utils/bucket.o \
 obj/sort/sort5.o
+OBJFILES_DEBUG := obj/status.o
 LIBFT := includes/libft/libft.a
 HEADERS := -I includes/libft/
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS := -Wall -Wextra -Werror
+CFLAGS_DEBUG := -fsanitize=address -g3
 CC := gcc
 
 all: $(LIBFT) $(NAME)

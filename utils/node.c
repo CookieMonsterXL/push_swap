@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:25:21 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/27 10:12:38 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*ft_new_node(int c)
 {
 	t_node	*new_node;
 
-	new_node = (t_node *)malloc(sizeof (*new_node));
+	new_node = malloc(sizeof (t_node));
 	if (!(new_node))
 		return (NULL);
 	new_node->c = c;
@@ -51,6 +51,8 @@ int	ft_list_size(t_node *lst)
 	int		i;
 	t_node	*current;
 
+	if (!(lst))
+		return (0);
 	i = 0;
 	current = lst;
 	while (current != NULL)

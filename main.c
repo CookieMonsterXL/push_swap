@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 14:47:46 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/05/27 10:44:50 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,17 @@ static int	check_nummbers(char **argv)
 	return (1);
 }
 
-static void	make_list(t_lists_a_b *lists, int argc, char **argv)
+static t_lists_a_b	*make_list(int argc, char **argv)
 {
-	int		i;
-	t_node	*temp_node;
+	int			i;
+	t_node		*temp_node;
+	t_lists_a_b	*lists;
 
+	lists = malloc(sizeof(t_lists_a_b));
+	if (lists == NULL)
+		exit(0);
+	lists->a = NULL;
+	lists->b = NULL;
 	i = 1;
 	lists->a = ft_new_node(atoi(argv[i]));
 	i++;
@@ -55,30 +61,29 @@ static void	make_list(t_lists_a_b *lists, int argc, char **argv)
 		ft_list_node_add_back(&lists->a, temp_node);
 		i++;
 	}
+	return (lists);
 }
 
 int	main(int argc, char **argv)
 {
-	t_lists_a_b	lists;
+	t_lists_a_b	*lists;
 	int			length_list;
 
 	if (!(check_nummbers(argv)))
 		return (0);
-	make_list(&lists, argc, argv);
-	list_make_index_bucket(&lists.a);
-	status_nodes(&lists.a, &lists.b);
-	length_list = ft_list_size(lists.a);
+	lists = make_list(argc, argv);
+	list_make_index_bucket(&lists->a);
+	length_list = ft_list_size(lists->a);
 	if (length_list == 2)
-		sort2(&lists.a);
+		sort2(&lists->a);
 	else if (length_list == 3)
-		sort3(&lists.a);
+		sort3(&lists->a);
 	else if (length_list == 4)
-		sort4(&lists);
+		sort4(lists);
 	else if (length_list == 5)
-		sort5(&lists);
+		sort5(lists);
 	else if (length_list > 5)
-		bucketsort(&lists);
-	status_nodes(&lists.a, &lists.b);
+		bucketsort(lists);
 	exit(0);
 	return (0);
 }
