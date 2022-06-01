@@ -6,15 +6,13 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:16:08 by tbouma            #+#    #+#             */
-/*   Updated: 2022/06/01 11:47:42 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/01 12:04:19 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <string.h>
 # include <stdlib.h>
-# include <stdbool.h>
 # include <limits.h>
 # include <unistd.h>
 
