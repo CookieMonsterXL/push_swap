@@ -7,6 +7,7 @@ ramdom_numers.py
 tester/
 checker
 push_swap_run_args.log
+.DS_Store
 
 *.o
 *.a

@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:16:08 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/27 12:34:33 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/01 11:47:42 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	error_mgs(void);
 
 //utils
 void	check_dubble_values(t_node **list_a);
+int		ft_atoi_minmax_check(const char *str, int *error);
 
 // DIFINE All PRINTED OPERATIONS
 # define SA		"sa\n"

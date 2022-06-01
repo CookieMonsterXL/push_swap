@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 16:35:51 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/27 10:12:38 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/01 11:45:00 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*ft_new_node(int c)
 
 	new_node = malloc(sizeof (t_node));
 	if (!(new_node))
-		return (NULL);
+		exit(1);
 	new_node->c = c;
 	new_node->n = NULL;
 	new_node->p = NULL;

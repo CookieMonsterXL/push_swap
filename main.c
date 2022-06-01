@@ -6,19 +6,19 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/27 15:38:38 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/01 11:48:44 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft/libft.h"
 #include "includes/push_swap.h"
 
-static int	isdigit2(int c)
+static int	isdigit_or_min(int c)
 {
 	return ((c >= '0' && c <= '9') || c == '-');
 }
 
-static void	check_nummbers(char **argv)
+static void	check_nummbers_on_digits(char **argv)
 {
 	int	i;
 	int	k;
@@ -29,7 +29,7 @@ static void	check_nummbers(char **argv)
 		k = 0;
 		while (argv[i][k])
 		{
-			if (!(isdigit2(argv[i][k])))
+			if (!(isdigit_or_min(argv[i][k])))
 				error_mgs();
 			k++;
 		}
@@ -40,10 +40,16 @@ static void	check_nummbers(char **argv)
 static int	make_int_and_check_max_min(char *str)
 {
 	int	num;
+	int	*error;
 
-	num = ft_atoi(str);
-	if (ft_strncmp(str, "0\0", 2) != 0 && num == 0)
+	error = malloc(sizeof(int));
+	if (error == NULL)
+		exit(1);
+	*error = 0;
+	num = ft_atoi_minmax_check(str, error);
+	if (*error > 0)
 		error_mgs();
+	free(error);
 	return (num);
 }
 
@@ -56,7 +62,7 @@ static t_lists_a_b	*make_list(int argc, char **argv)
 
 	lists = malloc(sizeof(t_lists_a_b));
 	if (lists == NULL)
-		exit(0);
+		exit(1);
 	lists->a = NULL;
 	lists->b = NULL;
 	i = 1;
@@ -81,7 +87,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		exit(1);
-	check_nummbers(argv);
+	check_nummbers_on_digits(argv);
 	lists = make_list(argc, argv);
 	if (ft_list_check_sorted(&lists->a))
 		exit(0);

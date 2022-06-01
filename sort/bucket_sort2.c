@@ -6,7 +6,7 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:06:31 by tbouma            #+#    #+#             */
-/*   Updated: 2022/05/26 12:31:12 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/01 11:44:25 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	find_spot_to_insert_in_b(t_lists_a_b *lists, int i, int amount_pushed)
 	int	*checker;
 
 	checker = malloc(sizeof(int));
+	if (checker == NULL)
+		exit(1);
 	*checker = 1;
 	if (lists->b == NULL || lists->b->n == NULL || lists->b->n->n == NULL)
 		return (i);
