@@ -6,17 +6,17 @@
 /*   By: tbouma <tbouma@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:16:07 by tbouma            #+#    #+#             */
-/*   Updated: 2022/06/01 11:48:44 by tbouma           ###   ########.fr       */
+/*   Updated: 2022/06/02 11:54:18 by tbouma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft/libft.h"
 #include "includes/push_swap.h"
 
-static int	isdigit_or_min(int c)
-{
-	return ((c >= '0' && c <= '9') || c == '-');
-}
+// static int	isdigit(int c)
+// {
+// 	return ((c >= '0' && c <= '9') || c == '-');
+// }
 
 static void	check_nummbers_on_digits(char **argv)
 {
@@ -29,7 +29,8 @@ static void	check_nummbers_on_digits(char **argv)
 		k = 0;
 		while (argv[i][k])
 		{
-			if (!(isdigit_or_min(argv[i][k])))
+			if ((!(ft_isdigit(argv[i][k])) && argv[i][k] != '-' && k == 0)
+				|| (k != 0 && !(ft_isdigit(argv[i][k]))))
 				error_mgs();
 			k++;
 		}
